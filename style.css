@@ -1,0 +1,39 @@
+body {
+    background: #202020;
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+    background: #fff;
+    padding: 20px 10px;
+    border-radius: 40px;
+}
+
+#collatz, #multiplier {
+    border-radius: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+.main {
+    background: #505050;
+    padding: 20px;
+    margin-top: 0;
+    border-radius: 40px;
+}
+
+.input {
+    padding: 20px 0;
+}
+
+.steps-list {
+    background: white;
+    border-radius: 30px;
+    padding: 5px 0;
+}
