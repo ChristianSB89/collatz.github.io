@@ -1,42 +1,45 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;700&display=swap" rel="stylesheet">
-    </head>
+    <title>Collatz Conjecture</title>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="box1">
+        <h1>Collatz Formoding</h1>
+      </div>
+      <div class="box2">
+        <input type="number" id="inputField" placeholder="Pick a number!" />
+      </div>
+      <div class="box3">
+        <button id="myBtn">Test tallet</button>
+        <button id="deleteBtn">Reset</button>
+      </div>
+      <div class="box5">
+        <h3 id="the-number">Du testet:</h3>
+        <p id="test"></p>
+      </div>
+      <div class="box4">
+        <h3 id="the-result">Hvor mange steg til 4-2-1:</h3>
+        <p id="tallrekke"></p>
+      </div>
+      <div class="box6">
+        <h3 id="allNumber">Tall-rekke:</h3>
+        <p id="alleTall"></p>
+      </div>
+    </div>
 
-    <body>
-        <section class="main">
-            <h1>Collatz</h1>
-            <section class="input">
-
-                <input type="number" id="collatz" placeholder="Positive Integer"/>
-                <input type="number" id="multiplier" placeholder ="Multiplier (n+1)" />
-                
-            </section>
-
-            <section class="steps-list">
-
-                <output id="result">
-                    <h2>Steps: <span class="steps"></span></h2>
-                    <ul >
-                    
-                    </ul>
-                </output>
-
-            </section>
-
-            <script src="collatz.js" async defer></script>
-
-        </section>
-
-    </body>
+    <script type="text/javascript" src="collatz.js"></script>
+  </body>
 </html>

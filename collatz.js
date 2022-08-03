@@ -1,55 +1,57 @@
-var collatz = collatz || {};
+console.log("The Collatz Conjecture");
 
-collatz.multiplier = 3;
+//Variables that gets elements from HTML//
+const testTallet = document.querySelector("#myBtn");
+const inputTall = document.querySelector("#inputField");
+const slettTallet = document.querySelector("#deleteBtn");
 
-collatz.even = function (n) {
-  return n / 2;
-};
-collatz.odd = function (n) {
-  return n * this.multiplier + 1;
-};
-collatz.steps = 0;
-collatz.stepsOut = document.querySelector("#result .steps");
-collatz.output = document.querySelector("#result ul");
+//Button for input field//
+testTallet.addEventListener("click", handleInput);
 
-collatz.li = function (n) {
-  var li = document.createElement("li");
-  li.innerText = n;
-  return li;
-};
-collatz.init = function (n) {
-  this.steps++;
-  this.stepsOut.innerText = collatz.steps;
-  if (n % 2 === 0) {
-    n = this.even(n);
-  } else {
-    n = this.odd(n);
+//Write to HTML//
+function handleInput() {
+  let valgtTall = parseInt(inputTall.value);
+  const tallArray = collatzFormodning(valgtTall);
+  logTall(tallArray, valgtTall);
+}
+
+//The Collatz function//
+function collatzFormodning(valgtTall) {
+  let tallArray = [];
+  while (valgtTall !== 1) {
+    if (valgtTall % 2 == 0) {
+      valgtTall = valgtTall / 2;
+    } else {
+      valgtTall = valgtTall * 3 + 1;
+    }
+    console.log(valgtTall);
+    tallArray.push(valgtTall);
   }
-  this.output.appendChild(collatz.li(n));
+  console.dir(tallArray);
+  return tallArray;
+}
 
-  if (n !== 1) {
-    collatz.init(n);
-  }
-};
-collatz.reset = function () {
-  collatz.steps = 0;
-  while (this.output.firstChild) {
-    this.output.removeChild(this.output.firstChild);
-  }
-};
+//Logging numbers from console to innerHTML//
+function logTall(tallSomLogges, gammeltTall) {
+  document.getElementById("test").innerHTML = gammeltTall;
+  document.getElementById("tallrekke").innerHTML = tallSomLogges.length;
+  document.getElementById("alleTall").innerHTML = tallSomLogges;
+}
 
-var input = document.querySelector("#collatz");
-var multiplier = document.querySelector("#multiplier");
+//Reset input field//
+function clear() {
+  document.getElementById("tallrekke").innerHTML = "";
+  document.getElementById("test").innerHTML = "";
+  document.getElementById("inputField").innerHTML = "";
+}
+slettTallet.addEventListener("click", clear);
 
-multiplier.addEventListener("change", function (e) {
-  var value = e.target.value;
-  collatz.multiplier = e.target.value;
-  collatz.reset();
-  collatz.init(input.value);
+const btn = document.getElementById("deleteBtn");
+
+btn.addEventListener("click", function handleClick(event) {
+  event.preventDefault();
+  const testFelt = document.getElementById("inputField");
+  console.log(testFelt.value);
+  testFelt.value = "";
 });
 
-input.addEventListener("change", function (e) {
-  var value = e.target.value;
-  collatz.reset();
-  collatz.init(value);
-});
